@@ -2,7 +2,7 @@
 
 # Define a function to add an item to the list
 def add_item():
-    new_item = iput("What item would you like to ad to the list? ")
+    new_item = input("What item would you like to ad to the list? ")
 
 # Append the item to the list and return it
     grocery_list.append(new_item)
@@ -27,28 +27,42 @@ def show_list():
         print(item)
 
 # If the list is empty, display a message
+    if not grocery_list:
+        print(item)
 
+def bye():
+    exit()
 
 # Start with an empty grocery list
-
+grocery_list = []
 
 # Use a loop to let the user choose an action:
 
+while True:
+    user_input = input("What would you like to do with the grocery list [add item], [remove item], [show list] or [exit] ").strip().lower()
 
 # (1) Add an item
 
+    if user_input == "add item":
+        add_item()
+        print("This is your updated grocery list")
+        show_list()
 
 # (2) Remove an item
 
+    elif user_input == "remove item":
+        remove_item()
+        print("This is you updated grocery list")
+        show_list()
 
 # (3) View the list
 
+    elif user_input == "show list":
+        show_list()
 
 # (4) Exit the program
 
-
-# Call the corresponding function based on user input
-
-
-# Continue looping until the user chooses to exit
-
+    elif user_input == "exit":
+        bye()
+    else:
+        print("Please Enter a Valid option, to exit simply type exit")
